@@ -33,7 +33,16 @@ It is suggested to use Visual Studio Code and PlatformIO for firmware developmen
 
 ### Zephyr
 
-You can use Visual Studio Code as described above. However, Zephyr is [not yet](https://github.com/platformio/platformio-core/issues/1613) supported by PlatformIO, so you need to install and use the original Zephyr build system (called west) on the command-line.
+Support for Zephyr was recently [included in PlatformIO](https://github.com/platformio/platformio-core/issues/1613) and is currently in beta status. In order to try it out, install the developer version of PlatformIO and run update to get also de development version of the `ststm32` package:
+
+```
+platformio upgrade --dev
+platformio update
+```
+
+Now you should be able to compile also with Zephyr for above mentioned board.
+
+As an alternative way, you can to install and use the original Zephyr build system (called west) on the command-line.
 
 1. Install Zephyr according to instructions on their website.
 
@@ -41,7 +50,7 @@ You can use Visual Studio Code as described above. However, Zephyr is [not yet](
 
     `source path/to/your/zeyphyr/installation/zephyr-env.sh`
 
-2. Build the firmware by calling
+2. Build the firmware by calling inside the `zephyr` sub-directory.
 
     `west build`
 
@@ -51,7 +60,7 @@ You can use Visual Studio Code as described above. However, Zephyr is [not yet](
 
     `west flash`
 
-**Remark:** You need to run the mbed build for `bms-8s50-ic` once before you can use Zephyr in order to download the [ThingSet protocol library](https://github.com/ThingSet/thingset-cpp) to `.pio` directory.
+**Remark:** You need to run the mbed build for `bms-5s50-sc` once before you can use Zephyr in order to download the [ThingSet protocol library](https://github.com/ThingSet/thingset-cpp) to `.pio` directory.
 
 ## API documentation
 
